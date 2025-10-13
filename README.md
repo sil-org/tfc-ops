@@ -8,7 +8,7 @@ modifying variables in workspaces.
 
 There are three ways to download/install this script:
 
-1. Download a pre-built binary for your operating system from the [Releases](https://github.com/silinternational/tfc-ops/releases) page.
+1. Download a pre-built binary for your operating system from the [Releases](https://github.com/sil-org/tfc-ops/releases) page.
 2. If you're a Go developer and want to modify the source before running, clone this repo and run with `go run main.go ...`
 
 ## Configuration
@@ -326,4 +326,4 @@ Global Flags:
 
 ## License
 tfc-ops is released under the Apache 2.0 license. See 
-[LICENSE](https://github.com/silinternational/tfc-ops/blob/main/LICENSE)
+[LICENSE](https://github.com/sil-org/tfc-ops/blob/main/LICENSE)
