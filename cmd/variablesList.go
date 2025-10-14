@@ -1,4 +1,4 @@
-// Copyright © 2018-2022 SIL International
+// Copyright © 2018-2022 SIL Global
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -22,7 +22,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	api "github.com/silinternational/tfc-ops/v4/lib"
+	api "github.com/sil-org/tfc-ops/v4/lib"
 )
 
 var (
