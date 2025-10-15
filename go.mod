@@ -1,4 +1,4 @@
-module github.com/sil-org/tfc-ops/v4
+module github.com/sil-org/tfc-ops/v5
 
 go 1.19
 

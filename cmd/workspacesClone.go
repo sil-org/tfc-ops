@@ -20,7 +20,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	cloner "github.com/sil-org/tfc-ops/v4/lib"
+	cloner "github.com/sil-org/tfc-ops/v5/lib"
 )
 
 var (

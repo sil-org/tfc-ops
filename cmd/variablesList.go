@@ -22,7 +22,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	api "github.com/sil-org/tfc-ops/v4/lib"
+	api "github.com/sil-org/tfc-ops/v5/lib"
 )
 
 var (

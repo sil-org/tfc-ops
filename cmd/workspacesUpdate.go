@@ -20,7 +20,7 @@ import (
 
 	"github.com/spf13/cobra"
 
-	"github.com/sil-org/tfc-ops/v4/lib"
+	"github.com/sil-org/tfc-ops/v5/lib"
 )
 
 const (
