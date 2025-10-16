@@ -34,7 +34,7 @@ func (o *OpsConfig) getColNames() []string {
 	val := reflect.ValueOf(o).Elem()
 	cols := []string{}
 
-	for i := 0; i < val.NumField(); i++ {
+	for i := range val.NumField() {
 		typeField := val.Type().Field(i)
 		cols = append(cols, typeField.Name)
 	}
