@@ -31,7 +31,6 @@ jobs:
       uses: goreleaser/goreleaser-action@v7
       if: github.event.pull_request
       with:
-        version: '~> v1'
         args: release --snapshot --clean
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
