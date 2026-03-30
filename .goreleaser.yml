@@ -1,10 +1,19 @@
 # This is the configuration for goreleaser
-# Check the documentation at http://goreleaser.com for details
+# Check the documentation at https://goreleaser.com for details
+
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+
+version: 2
+
 before:
   hooks:
     - go mod tidy
+
 builds:
-  - env:
+  - id: tfc-ops
+    binary: tfc-ops
+    main: .
+    env:
       - CGO_ENABLED=0
     goos:
       - linux
@@ -17,24 +26,29 @@ builds:
       - goos: windows
         goarch: arm
     ldflags:
-    - -s -w
-    - -X '{{.ModulePath}}/cmd.version={{.Version}}'
+      - -s -w
+      - -X '{{.ModulePath}}/cmd.version={{.Version}}'
 gomod:
   proxy: true
 archives:
-  -
+  - formats: [tar.gz]
+    # this name template makes the OS and Arch compatible with the results of `uname`.
     name_template: >-
-      tfc-ops_
+      {{ .ProjectName }}_
       {{- title .Os }}_
       {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
       {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    # use zip for windows archives
     format_overrides:
       - goos: windows
-        format: zip
+        formats: [zip]
+
 checksum:
   name_template: 'checksums.txt'
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  version_template: "{{ .Tag }}-dev"
 changelog:
   sort: asc
   filters:
