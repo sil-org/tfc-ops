@@ -13,34 +13,31 @@ jobs:
   goreleaser:
     runs-on: ubuntu-latest
     steps:
-    -
-      name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-    -
-      name: Fetch all tags
-      run: git fetch --force --tags
-    -
-      name: Set up Go
-      uses: actions/setup-go@v5
-      with:
-        go-version-file: 'go.mod'
-    -
-      name: Run GoReleaser in snapshot mode
-      uses: goreleaser/goreleaser-action@v5
-      if: github.event.pull_request
-      with:
-        version: '~> v1'
-        args: release --snapshot --clean
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    -
-      name: Run GoReleaser on a release tag
-      uses: goreleaser/goreleaser-action@v5
-      if: startsWith(github.ref, 'refs/tags/')
-      with:
-        version: '~> v1'
-        args: release --clean
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Fetch all tags
+        run: git fetch --force --tags
+
+      - name: Set up Go
+        uses: actions/setup-go@v6
+        with:
+          go-version-file: 'go.mod'
+
+      - name: Run GoReleaser in snapshot mode
+        uses: goreleaser/goreleaser-action@v7
+        if: github.event.pull_request
+        with:
+          args: release --snapshot --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run GoReleaser on a release tag
+        uses: goreleaser/goreleaser-action@v7
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          args: release --clean
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
