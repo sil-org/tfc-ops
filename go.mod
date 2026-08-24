@@ -1,6 +1,8 @@
 module github.com/sil-org/tfc-ops/v5
 
-go 1.25
+go 1.26
+
+toolchain go1.26.7
 
 require (
 	github.com/Jeffail/gabs/v2 v2.7.0
